@@ -15,7 +15,6 @@ const HomePage: React.FC = () => {
   const [animating, setAnimating] = useState(false);
   const [visibleSection, setVisibleSection] = useState<string | null>(null);
 
-  // Smooth section scroll detection
   useEffect(() => {
     const handleScroll = () => {
       const sections = document.querySelectorAll("section");
@@ -30,7 +29,6 @@ const HomePage: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Handle smooth dark mode toggle animation
   const toggleTheme = () => {
     setAnimating(true);
     setDarkMode(!darkMode);
@@ -49,29 +47,29 @@ const HomePage: React.FC = () => {
           darkMode ? "bg-gray-800 text-gray-100" : "bg-purple-700 text-white"
         }`}
       >
-        <h1 className="text-2xl font-bold">DhanSaathi</h1>
+        <h1 className="text-2xl font-bold tracking-wide">DhanSaathi</h1>
 
         <div className="hidden md:flex space-x-6 text-sm font-medium">
-          <a href="#signup" className="hover:underline">
-            Signup/Login
-          </a>
-          <a href="#credit" className="hover:underline">
-            Credit Scoring
-          </a>
-          <a href="#loan" className="hover:underline">
-            Loan Eligibility
-          </a>
-          <a href="#bankform" className="hover:underline">
-            Bank Form
-          </a>
-          <a href="#scheme" className="hover:underline">
-            Schemes
-          </a>
+          {["Signup/Login", "Credit Scoring", "Loan Eligibility", "Bank Form", "Schemes"].map(
+            (label, i) => {
+              const id = ["signup", "credit", "loan", "bankform", "scheme"][i];
+              return (
+                <a
+                  key={id}
+                  href={`#${id}`}
+                  className="relative group overflow-hidden"
+                >
+                  {label}
+                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white group-hover:w-full transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]" />
+                </a>
+              );
+            }
+          )}
         </div>
 
         <button
           onClick={toggleTheme}
-          className={`p-2 rounded-full transition-all duration-500 ease-in-out transform hover:scale-110 ${
+          className={`p-2 rounded-full transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] transform hover:scale-110 hover:shadow-[0_0_15px_rgba(255,255,255,0.3)] ${
             darkMode
               ? "bg-gray-700 text-yellow-300 hover:bg-gray-600"
               : "bg-white/30 text-white hover:bg-white/40"
@@ -101,15 +99,18 @@ const HomePage: React.FC = () => {
             onClick={() =>
               document.getElementById("signup")?.scrollIntoView({ behavior: "smooth" })
             }
-            className="mt-2 px-6 py-3 bg-white text-purple-700 font-semibold rounded-xl shadow-md hover:bg-gray-100 flex items-center gap-2 mx-auto transition-all duration-500 hover:scale-105"
+            className="mt-2 px-6 py-3 bg-white text-purple-700 font-semibold rounded-xl shadow-md relative overflow-hidden group transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] hover:scale-105 hover:shadow-lg"
           >
-            Get Started <ArrowDown size={18} />
+            <span className="relative z-10 flex items-center gap-2">
+              Get Started <ArrowDown size={18} />
+            </span>
+            <span className="absolute inset-0 bg-gradient-to-r from-purple-300 to-purple-600 opacity-0 group-hover:opacity-20 blur-md transition-all duration-700 ease-in-out" />
           </button>
         </div>
       </section>
 
-      {/* Features Grid */}
-      <section className="max-w-6xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-6 p-10 transition-all duration-700 ease-in-out">
+      {/* Feature Cards */}
+      <section className="max-w-6xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-6 p-10">
         {[
           { icon: <User />, title: "Signup / Login", desc: "Create your account to access personalized tools." },
           { icon: <FileText />, title: "Credit Scoring", desc: "Enter details to calculate your credit score instantly." },
@@ -119,20 +120,21 @@ const HomePage: React.FC = () => {
         ].map((f, i) => (
           <div
             key={i}
-            className={`p-6 rounded-2xl shadow-md hover:shadow-xl transform transition-all duration-500 hover:-translate-y-1 hover:scale-[1.02] ${
+            className={`p-6 rounded-2xl shadow-md relative overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] hover:shadow-[0_0_25px_rgba(139,92,246,0.5)] hover:-translate-y-1 hover:scale-[1.03] ${
               darkMode ? "bg-gray-800" : "bg-white"
             }`}
           >
-            <div className="flex items-center gap-3 text-purple-700 mb-3">
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-400/10 to-purple-600/10 opacity-0 group-hover:opacity-100 blur-xl transition-all duration-700 ease-in-out"></div>
+            <div className="relative z-10 flex items-center gap-3 text-purple-700 mb-3">
               {f.icon}
               <h4 className="font-semibold text-lg">{f.title}</h4>
             </div>
-            <p className="text-gray-600 dark:text-gray-300">{f.desc}</p>
+            <p className="relative z-10 text-gray-600 dark:text-gray-300">{f.desc}</p>
           </div>
         ))}
       </section>
 
-      {/* Other Sections (same as before, with transitions) */}
+      {/* Sections */}
       {[
         {
           id: "signup",
@@ -177,8 +179,9 @@ const HomePage: React.FC = () => {
           <div className="max-w-6xl mx-auto">
             <h3 className="text-2xl font-semibold text-purple-700 mb-4">{s.title}</h3>
             <p className="text-gray-600 dark:text-gray-300 mb-6">{s.desc}</p>
-            <button className="px-6 py-3 bg-purple-700 text-white rounded-lg hover:bg-purple-800 transition-all duration-500 hover:scale-105">
-              {s.button}
+            <button className="px-6 py-3 bg-purple-700 text-white rounded-lg relative overflow-hidden group transition-all duration-500 hover:scale-105 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)]">
+              <span className="relative z-10">{s.button}</span>
+              <span className="absolute inset-0 bg-gradient-to-r from-purple-400 to-purple-700 opacity-0 group-hover:opacity-20 blur-md transition-all duration-700 ease-in-out" />
             </button>
           </div>
         </section>
