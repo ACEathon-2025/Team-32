@@ -1,0 +1,85 @@
+[
+  {
+    "id": "1",
+    "name": "PM Kisan Yojana",
+    "description": "Provides income support to small and marginal farmers. Available for both BPL and APL farmers within income limits.",
+    "eligibility": {
+      "occupation": ["farmer"],
+      "maxIncome": 300000
+    },
+    "url": "https://pmkisan.gov.in/"
+  },
+  {
+    "id": "2",
+    "name": "PM Ujjwala Yojana",
+    "description": "Provides free LPG gas connections to women from BPL households.",
+    "eligibility": {
+      "gender": ["female"],
+      "bplOnly": true
+    },
+    "url": "https://pmuy.gov.in/"
+  },
+  {
+    "id": "3",
+    "name": "National Scholarship Portal (CSSS)",
+    "description": "Scholarship for students pursuing higher education from economically weaker families.",
+    "eligibility": {
+      "occupation": ["student"],
+      "maxIncome": 200000,
+      "maxAge": 25
+    },
+    "url": "https://scholarships.gov.in/"
+  },
+  {
+    "id": "4",
+    "name": "PM Mudra Loan Scheme",
+    "description": "Loans up to ₹10 lakh for small business owners, self-employed individuals, and entrepreneurs (APL and BPL both).",
+    "eligibility": {
+      "occupation": ["entrepreneur", "self-employed", "gig"],
+      "maxIncome": 1200000,
+      "minAge": 18
+    },
+    "url": "https://www.mudra.org.in/"
+  },
+  {
+    "id": "5",
+    "name": "Stand-Up India Scheme",
+    "description": "Provides financial support for SC/ST and women entrepreneurs to start new businesses.",
+    "eligibility": {
+      "occupation": ["entrepreneur"],
+      "gender": ["female", "male"],
+      "minAge": 18
+    },
+    "url": "https://www.standupmitra.in/"
+  },
+  {
+    "id": "6",
+    "name": "National Family Benefit Scheme (NFBS)",
+    "description": "One-time financial assistance for BPL families on the death of the primary breadwinner.",
+    "eligibility": {
+      "bplOnly": true,
+      "minAge": 18
+    },
+    "url": "https://nsap.nic.in/"
+  },
+  {
+    "id": "7",
+    "name": "PM KUSUM (Solar Pump Scheme)",
+    "description": "Subsidy for farmers to install solar pumps — applicable to both BPL and APL farmers.",
+    "eligibility": {
+      "occupation": ["farmer"],
+      "minAge": 18
+    },
+    "url": "https://pmmodiyojana.in/pm-kusum-scheme/"
+  },
+  {
+    "id": "8",
+    "name": "Indira Gandhi National Old Age Pension Scheme (IGNOAPS)",
+    "description": "Monthly pension to BPL citizens aged 60 years and above.",
+    "eligibility": {
+      "bplOnly": true,
+      "minAge": 60
+    },
+    "url": "https://nsap.nic.in/"
+  }
+]
