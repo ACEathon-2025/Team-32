@@ -25,7 +25,7 @@ It simplifies **form filling**, provides **loan eligibility insights**, and help
 Many people struggle to access financial schemes, loans, and support due to:
 - Lack of awareness about available government schemes  
 - Complex financial forms filled with technical terms  
-- No proper credit history, leading to loan rejection  
+- No proper credit history, leading to loan rejectio 
 
 ---
 
