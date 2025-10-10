@@ -1,0 +1,79 @@
+[
+  {
+    "key": "Date / दिनांक :",
+    "value": "",
+    "hint": "Write today's date (DD/MM/YYYY) [Ex: 04/10/2025]",
+    "type": "date",
+    "required": true,
+    "pattern": "^\\d{2}/\\d{2}/\\d{4}$",
+    "patternMessage": "Date format should be DD/MM/YYYY [Ex: 04/10/2025]",
+    "keyBox": [
+ { "x": 860, "y": 50 },
+    { "x": 1020, "y": 50 },
+    { "x": 1020, "y": 80 },
+    { "x": 860, "y": 80 }
+  ]
+  },
+  {
+    "key": "Rs. / रु.",
+    "value": "",
+    "hint": "Enter the amount in numbers [Ex: 2500]",
+    "type": "number",
+    "required": true,
+    "min": 1,
+    "patternMessage": "Amount should be numbers greater than 0 [Ex: 2500]",
+    "keyBox": [
+     { "x": 780, "y": 180 },
+    { "x": 930, "y": 180 },
+    { "x": 930, "y": 210 },
+    { "x": 780, "y": 210 }
+    ]
+  },
+  {
+    "key": "A/c No.",
+    "value": "",
+    "hint": "Enter the account number [Ex: 123456789012]",
+    "type": "account",
+    "required": true,
+    "pattern": "^\\d{9,18}$",
+    "patternMessage": "Account number should be 9–18 digits [Ex: 123456789012]",
+    "keyBox": [
+      { "x": 100, "y": 260 },
+      { "x": 300, "y": 260 },
+      { "x": 300, "y": 290 },
+      { "x": 100, "y": 290 }
+    ]
+  },
+  {
+  "key": "PAY",
+  "value": "",
+  "hint": "Enter the receiver's full name [Ex: Rahul Sharma]",
+  "type": "text",
+  "required": true,
+  "pattern": "^[A-Za-z ]{2,50}$",
+  "patternMessage": "Name should be 2–50 letters only [Ex: Rahul Sharma]",
+  "keyBox": [
+    { "x": 130, "y": 100 },
+    { "x": 330, "y": 100 },
+    { "x": 330, "y": 130 },
+    { "x": 130, "y": 130}
+  ]
+},
+{
+  "key": "RUPEES / रुपये ",
+  "value": "",
+  "hint": "Enter the amount in words [Ex: Two thousand five hundred only]",
+  "type": "text",
+  "required": true,
+  "pattern": "^[A-Za-z ]{3,100}$",
+  "patternMessage": "Amount should be in English words only [Ex: Two thousand five hundred only]",
+  "keyBox": [
+    { "x": 230, "y": 140 },
+    { "x": 630, "y": 140 },
+    { "x": 630, "y": 170 },
+    { "x": 230, "y": 170 }
+  ]
+}
+
+
+]
